@@ -1,6 +1,6 @@
 #!/bin/sh
-git clone --recursive https://github.com/netroby/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+git clone --depth=1 --recursive https://github.com/netroby/prezto.git "${HOME}/.zprezto"
+PREPATH="${HOME}/.zprezto/runcoms"
+for rcfile in zlogin zlogout zpreztorc zprofile zshenv zshrc; do
+    ln -s "${PREPATH}/${rcfile}" "${HOME}/.${rcfile}"
 done
